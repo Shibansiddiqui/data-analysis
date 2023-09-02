@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon-32x32.png" type="image/png">
+    <title>Data Analysis</title>
+    <style>
+        #prt3{
+            color: #333;
+        }
+        h3,h2{
+            color: #333;
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+            }
+        .navbar-nav{
+            position: relative;
+            left: 40%;
+            
+        }
+        .navbar {
+            padding: 0 0 4.5rem;
+            color: #f1f2ee00;
+        }
+        .navbar-brand {
+            font-family: 'Ubuntu';
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .nav-item {
+            padding: 0 18px;
+        }
+        .nav-link {
+            font-size: 1.2rem;
+            font-family: 'Monteserrat';
+            color: #ccc;
+        }
+        @media (max-width: 1028px) {
+            #title {
+                text-align: center;
+            }
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .post {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .post h2 {
+            margin-top: 0;
+        }
+        .post p {
+            color: #444;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+        }
+        .code-section {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .code-section:hover {
+            background-color: #e0e0e0;
+        }
+        pre {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
+
+        /* Media query for small screens */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .code-section {
+                padding: 10px;
+            }
+        }
+    </style>
+                <!-- Bootstrap Scripts  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     
+    <!-- Font Awesome  -->
+    <script src="https://kit.fontawesome.com/cd308f496a.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d32f151911.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:Black|Ubuntu" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Data Analysis of Fandango</h1>
+             <!-- Nav Bar -->
+             <nav class="navbar navbar-dark pos-f-t">
+                <a class="navbar-brand" href=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#intro">Introduction</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#prt1">Part 1</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="#prt2">Part 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#prt3">Part 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cncl">Conclusion</a>
+                        </li>
+                    </ul>
+
+            
+                </div>
+            </nav>
+            <!-- navq bar end -->
+
+   
+
+
+
+        <p>By Python</p>
+    
+        
+    </header>
+
+
+           
+    <div class="container">
+        <div class="post">
+            <h2 id="intro">Fandango</h2>
+            <p>Fandango Media, LLC is an American ticketing company that sells movie tickets as well as give movies reviews.
+                In 2015, Fandango faced allegations of providing misleading reviews for movies, as outlined in the mentioned article.<a href="https://fivethirtyeight.com/features/fandango-movies-ratings/"> FiveThirtyEight</a>
+            </p>
+           <h2>Aim</h2> 
+           <p>When a company both displays, movie ratings and profits from selling tickets, there could be a bias toward higher ratings to boost sales. Transparency and audience awareness are essential to prevent such biases.The goal is to assess the data from Fandango and compare it with the claims made in the 538 article to ascertain whether Fandango's ratings in 2015 were indeed influenced to favor higher ratings, potentially to boost ticket sales.</p>
+            <h2> Technologies Used</h2>
+                <p>Language: python</p>
+                <p>Libraries: numpy, pandas, matplotlib and seaborn</p>
+           <h2>Data</h2>
+        <p>The data set is openly available on <a href="https://github.com/fivethirtyeight/data/tree/master/fandango">538's github</a>. There are two csv files, one with Fandango Stars and Displayed Ratings, and the other with aggregate data for movie ratings from other sites, like Metacritic, IMDB, and Rotten Tomatoes.</p>
+            <h3>all_sites_scores.csv</h3>
+            <p>all_sites_scores.csv contains every film that has a Rotten Tomatoes rating, a RT User rating, a Metacritic score, a Metacritic User score, and IMDb score, and at least 30 fan reviews on Fandango. The data from Fandango was pulled on Aug. 24, 2015.</p>
+            <pre><code>                        <img src="images/newallsitecsv.png" alt=""> </code></pre>
+            <h3>fandango_scape.csv</h3>
+            <p>fandango_scrape.csv contains every film 538 pulled from Fandango.</p>
+            <pre><code>        <img src="images/newfandango.png" alt=""> </code></pre>   
+        </div>
+
+        <!-- part 1 -->
+        <div class="post">
+            <h2 id="prt1">part 1 :Fandango site </h2>
+            <div class="code-section">
+                <p>Importing</p>
+                <pre><code>
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+fandango = pd.read_csv("fandango_scrape.csv")
+fandango.head()
+    
+                <h3>Output</h3>
+                <pre><code>
+                    <img src="images/head.png" alt="">
+                    </code></pre>
+            </div>
+       
+
+        
+            <div class="code-section">
+                <p>The relationship between popularity of a film and its rating. By a scatterplot  which is showing the relationship between rating and votes.</p>
+                <pre><code>
+plt.figure(figsize=(10,4),dpi=150)
+sns.scatterplot(data=fandango,x='RATING',y='VOTES');
+    </code></pre>
+                <h3>Output</h3>
+                <pre><code>
+<img src="images/scatterplot.png" alt="">
+                    </code></pre>
+           
+        </div>
+        <div class="code-section">
+            <p>   Creating a new column that is able to strip the year from the title strings and set this new column as YEAR</p>
+            <pre><code>
+fandango['YEAR'] = fandango['FILM'].apply(lambda title:title.split('(')[-1]))
+fandango
+</code></pre>
+            <h3>Output</h3>
+            <pre><code>
+        <img src="images/new_year.png" alt="">
+                </code></pre>
+       
+    </div>
+
+
+
+    <div class="code-section">
+        <p> number of movies in the Fandango DataFrame per year.</p>
+        <pre><code>
+fandango['YEAR'].value_counts()
+
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+    <img src="images/noofmov.png" alt="">
+            </code></pre>
+            </div>
+
+            
+    <div class="code-section">
+        <p>The count of movies per year:</p>
+        <pre><code>
+sns.countplot(data=fandango,x='YEAR')
+
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+            <img src="images/cntply.png" alt="">
+            </code></pre>
+ 
+            </div>
+
+            
+    <div class="code-section">
+        <p>the top 10 movies with the highest number of votes.</p>
+        <pre><code>
+fandango.nlargest(10,'VOTES')
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+            <img src="images/top10.png" alt="">
+            </code></pre>
+ 
+            
+</div>
+            
+    <div class="code-section">
+        <p>removing any films that have zero votes.</p>
+        <pre><code>
+fan_reviewed = fandango[fandango['VOTES']>0]
+
+</code></pre>
+        <h3></h3>
+        <pre><code>
+         
+            </code></pre>
+ 
+        </div>
+
+            
+    <div class="code-section">
+        <p>KDE plot, that displays the distribution of ratings (STARS) versus what the true rating was from votes (RATING)</p>
+        <pre><code>
+plt.figure(figsize=(10,4),dpi=150)
+sns.kdeplot(data=fan_reviewed,x='RATING',clip=[0,5],fill=True,label='True Rating')
+sns.kdeplot(data=fan_reviewed,x='STARS',clip=[0,5],fill=True,label='Stars Displayed')
+            
+plt.legend(loc=(1.05,0.5))
+
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+<img src="images/kde.png" alt="">
+            </code></pre>
+ 
+        </div>
+
+            
+    <div class="code-section">
+        <p>Calculating this difference with STARS-RATING and rounding these differences to the nearest decimal point.</p>
+        <pre><code>
+fan_reviewed["STARS_DIFF"] = fan_reviewed['STARS'] - fan_reviewed['RATING'] 
+fan_reviewed['STARS_DIFF'] = fan_reviewed['STARS_DIFF'].round(2)
+ fan_reviewed
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+        <img src="images/diff.png" alt="">
+            </code></pre>
+        </div>
+            
+
+            
+    <div class="code-section">
+        <p> The count plot which display the number of times a certain difference occurs: </p>
+        <pre><code>
+plt.figure(figsize=(12,4),dpi=150)
+sns.countplot(data=fan_reviewed,x='STARS_DIFF',palette='magma')
+
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+    <img src="images/diffcntplt.png" alt="">
+            </code></pre>
+ 
+        </div>
+
+            
+    <div class="code-section">
+        <p>the plot show that one movie was displaying over a 1 star difference than its true rating!</p>
+        <pre><code>
+fan_reviewed[fan_reviewed['STARS_DIFF'] == 1]
+
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+        <img src="images/1diff.png" alt="">
+            </code></pre>
+ 
+        </div>
+<!-- part 2 -->
+            
+     </div>
+     <div class="post">
+        <h2 id="prt2"><strong> Part 2: Comparison of Fandango Ratings to Other Sites </strong> </h2>
+            <div class="code-section">
+                <h3></h3>
+                <pre><code>
+all_sites = pd.read_csv("all_sites_scores.csv")        
+all_sites.head()       
+        </code></pre>
+                <h3>Output</h3>
+                <pre><code>
+<img src="images/allsitecsv.png" alt="">
+                    </code></pre>
+         </div>
+
+         <div class="code-section">
+            <h3></h3>
+            <pre><code>
+all_sites.info()   
+    </code></pre>
+            <h3>Output</h3>
+            <pre><code>
+                <img src="images/allsiteceinfo.png" alt="">
+                </code></pre>
+     </div>
+
+
+
+
+     <div class="code-section">
+        <h3>Rotten Tamatoes </h3>
+        <p>RT has two sets of reviews, their critics reviews (ratings published by official critics) and user reviews.</p>
+        <pre><code>
+plt.figure(figsize=(10,4),dpi=150)
+sns.scatterplot(data=all_sites,x='RottenTomatoes',y='RottenTomatoes_User')
+plt.xlim(0,100)
+plt.ylim(0,100)    
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+<img src="images/rt.png" alt="">
+            </code></pre>
+ </div>
+
+ <div class="code-section">
+    <h3></h3>
+    <p> Creating a new column based off the difference between critics ratings and users ratings for Rotten Tomatoes. ie :RottenTomatoes-RottenTomatoes_User</p>
+    <pre><code>
+all_sites['Rotten_Diff']  = all_sites['RottenTomatoes'] - all_sites['RottenTomatoes_User']
+
+</code></pre>
+    <h3>Output</h3>
+    
+</div>
+
+
+
+<div class="code-section">
+    <h3></h3>
+    <p>the Mean Absolute Difference between RT scores and RT User scores is.</p>
+    <pre><code>
+all_sites['Rotten_Diff'].apply(abs).mean()
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+        15.095890410958905
+        </code></pre>        
+</div>
+
+
+
+<div class="code-section">
+    <h3></h3>
+    <p>Histogramsof distribution of the differences between RT Critics Score and RT User Score.</p>
+    <pre><code>
+plt.figure(figsize=(10,4),dpi=200)
+sns.histplot(data=all_sites,x='Rotten_Diff',kde=True,bins=25)
+plt.title("RT Critics Score minus RT User Score");
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+<img src="images/histallsite.png" alt="">
+        </code></pre>        
+</div>
+
+
+
+<div class="code-section">
+    <h3></h3>
+    <p> distribution of the absolute value difference between Critics and Users on Rotten Tomatoes.</p>
+    <pre><code>
+plt.figure(figsize=(10,4),dpi=200)
+sns.histplot(x=all_sites['Rotten_Diff'].apply(abs),bins=25,kde=True)
+plt.title("Abs Difference between RT Critics Score and RT User Score");</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+        <img src="images/avd.png" alt="">
+        </code></pre>        
+</div>
+
+
+
+<div class="code-section">
+    <h3></h3>
+    <p> the top 5 movies, users rated higher than critics on average</p>
+    <pre><code>
+
+all_sites.nsmallest(5,'Rotten_Diff')[['FILM','Rotten_Diff']]
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+        <img src="images/top5rt.png" alt="">
+        </code></pre>        
+</div>
+
+<div class="code-section">
+    <h3></h3>
+    <p>the top 5 movies critics scores higher than users on average.</p>
+    <pre><code>
+print("Critics love, but Users Hate")
+all_sites.nlargest(5,'Rotten_Diff')[['FILM','Rotten_Diff']]
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+        <img src="images/crtlove.png" alt="">
+        </code></pre>        
+</div>
+
+<div class="code-section">
+    <h3>MetaCritic</h3>
+    <p>a scatterplot of the Metacritic Rating versus the Metacritic User rating.</p>
+    <pre><code>
+plt.figure(figsize=(10,4),dpi=150)
+sns.scatterplot(data=all_sites,x='Metacritic',y='Metacritic_User')
+plt.xlim(0,100)
+plt.ylim(0,10)
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+<img src="images/metra.png" alt="">
+        </code></pre>        
+</div>
+
+<div class="code-section">
+    <h3></h3>
+    <p>the highest Metacritic User Vote count for a movie</p>
+    <pre><code>
+all_sites.nlargest(1,'Metacritic_user_vote_count')
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+        <img src="images/hiestmetacrictic.png" alt="">
+        </code></pre>        
+</div>
+
+
+<div class="code-section">
+    <h3>IMBD</h3>
+    <p>a scatterplot for the relationship between vote counts on MetaCritic versus vote counts on IMDB.</p>
+    <pre><code>
+plt.figure(figsize=(10,4),dpi=150)
+sns.scatterplot(data=all_sites,x='Metacritic_user_vote_count',y='IMDB_user_vote_count')
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+<img src="images/scaterimbd.png" alt="">
+        </code></pre>        
+</div>
+<div class="code-section">
+    <h3></h3>
+    <p>the highest IMDB user vote count for a movie</p>
+    <pre><code>
+all_sites.nlargest(1,'IMDB_user_vote_count')
+</code></pre>
+    <h3>Output</h3>
+    <pre><code>
+        <img src="images/higestimbdusercnt.png" alt="">
+        </code></pre>        
+</div>
+
+<!-- part 3 -->
+
+     </div>
+<div class="post">
+    <h2 id="prt3"><strong> Part 3: Fandago Scores vs. All Sites</strong> </h2>
+    <div class="code-section">
+        <h3></h3>
+        <p> Combining the Fandango Table with the All Sites table, by inner merge to merge together both DataFrames based on the FILM columns.</p>
+        <pre><code>
+df = pd.merge(fandango,all_sites,on='FILM',how='inner')
+
+</code></pre>
+        <h3>Output</h3>
+        <pre><code>
+            <img src="images/smbinfo.png" alt="">
+            </code></pre>
+        </div>
+
+        <div class="code-section">
+            <h3></h3>
+            <p> Creating new normalized columns for all ratings so they match up within the 0-5 star range shown on Fandango.</p>
+            <pre><code>
+df['RT_Norm'] = np.round(df['RottenTomatoes']/20,1)
+df['RTU_Norm'] =  np.round(df['RottenTomatoes_User']/20,1)
+df['Meta_Norm'] =  np.round(df['Metacritic']/20,1)
+df['Meta_U_Norm'] =  np.round(df['Metacritic_User']/2,1)
+df['IMDB_Norm'] = np.round(df['IMDB']/2,1)              
+                df.head()
+    </code></pre>
+            <h3>Output</h3>
+            <pre><code>
+<img src="images/pt1.png" alt=""><img src="images/pt2.png" alt="">
+                </code></pre>
+            </div>
+
+
+
+            <div class="code-section">
+                <h3></h3>
+                <p> Now creating a norm_scores DataFrame that only contains the normalizes ratings. Include both STARS and RATING from the original Fandango table</p>
+                <pre><code>
+norm_scores = df[['STARS','RATING','RT_Norm','RTU_Norm','Meta_Norm','Meta_U_Norm','IMDB_Norm']]
+norm_scores.head()
+        </code></pre>
+                <h3>Output</h3>
+                <pre><code>
+                    <img src="images/normhead.png" alt="">
+                    </code></pre>
+                </div>
+
+
+
+
+                <div class="code-section">
+                    <h3></h3>
+                    <p>Comparing Distribution of Scores Across Sites</p>
+                    <pre><code>
+def move_legend(ax, new_loc, **kws):
+old_legend = ax.legend_
+handles = old_legend.legendHandles
+labels = [t.get_text() for t in old_legend.get_texts()]
+title = old_legend.get_title().get_text()
+ax.legend(handles, labels, loc=new_loc, title=title, **kws)
+fig, ax = plt.subplots(figsize=(15,6),dpi=150)
+sns.kdeplot(data=norm_scores,clip=[0,5],shade=True,palette='Set1',ax=ax)
+move_legend(ax, "upper left")
+            </code></pre>
+                    <h3>Output</h3>
+                    <pre><code>
+<img src="images/comp.png" alt="">
+                        </code></pre>
+                        <p>Clearly Fandango has an uneven distribution. We can also see that RT critics have the most uniform distribution. Let's directly compare these two</p>
+                    </div>
+
+
+
+                    <div class="code-section">
+                        <h3></h3>
+                        <p> A KDE plot that compare the distribution of RT critic ratings against the STARS displayed by Fandango.</p>
+                        <pre><code>
+fig, ax = plt.subplots(figsize=(15,6),dpi=150)
+sns.kdeplot(data=norm_scores[['RT_Norm','STARS']],clip=[0,5],shade=True,palette='Set1',ax=ax)
+move_legend(ax, "upper left")
+                </code></pre>
+                        <h3>Output</h3>
+                        <pre><code>
+<img src="images/rtnormstar.png" alt="">
+                            </code></pre>
+                        </div>
+
+                        <div class="code-section">
+                            <h3></h3>
+                            <p>histplot which is  comparing all normalized scores.</p>
+                            <pre><code>
+plt.subplots(figsize=(15,6),dpi=150)
+sns.histplot(norm_scores,bins=50)
+                    
+                    </code></pre>
+                            <h3>Output</h3>
+                            <pre><code>
+<img src="images/allinone.png" alt="">
+                                </code></pre>
+                            </div>
+
+                            <div class="code-section">
+                                <h3></h3>
+                                <p>the worst movies rated across all platforms.</p>
+                                <pre><code>
+sns.clustermap(norm_scores,cmap='magma',col_cluster=False)
+                        
+                        </code></pre>
+                                <h3>Output</h3>
+                                <pre><code>
+<img src="images/heatmp.png" alt="">
+                                    </code></pre>
+                                </div>
+
+
+   
+                                <div class="code-section">
+                                    <h3></h3>
+                                    <p>The distribution of ratings across all sites for the top 10 worst movies.</p>
+                                    <pre><code>
+plt.figure(figsize=(15,6),dpi=150)
+worst_films = norm_films.nsmallest(10,'RT_Norm').drop('FILM',axis=1)
+sns.kdeplot(data=worst_films,clip=[0,5],shade=True,palette='Set1')
+plt.title("Ratings for RT Critic's 10 Worst Reviewed Films");
+                            </code></pre>
+                                    <h3 id="cnl">Output</h3>
+                                    <pre><code>
+<img src="images/fnl.png" alt="">                        
+                                        </code></pre>
+                                    </div>
+
+
+                                <!-- conclusion -->
+
+                                <div class="code-section">
+                                    <h2 id="cncl"><strong>Conclusion</strong> </h2>
+                                    <p> Clearly Fandango is rating movies much higher than other sites, especially considering that it is then displaying a rounded up version of the rating. the top 10 worst movies, based off the Rotten Tomatoes Critic Ratings are :</p>
+                                    <pre ><code>
+norm_films = df[['STARS','RATING','RT_Norm','RTU_Norm','Meta_Norm','Meta_U_Norm','IMDB_Norm','FILM']]
+norm_films.nsmallest(10,'RT_Norm')                           
+                            </code></pre>
+                                    <h3>Output</h3>
+                                    <pre><code>
+<img src="images/smlt.png" alt="">
+                                        </code></pre>
+                                        <h3>Here we can clearly see tekken film  got 4.5 stars from fandango, on the other hand comparison to Rotten tamatoes which had gave 0.4 rating  </p>
+                                    </div>
+
+                                 
+            
+
+                                        <div class="code-section">
+                                            <h3></h3>
+                                            
+                                            <pre><code>
+norm_films.iloc[25]                                    
+                                    </code></pre>
+                                            <h3>Output</h3>
+                                            <pre><code>
+            <img src="images/tekkenrslt.png" alt="">
+                                                </code></pre>
+                                            </div>
+
+
+                                            
+                                        <div class="code-section">
+                                            <h3></h3>
+                                            
+                                            <pre><code>
+result = 0.4+2.3+1.3+2.3+3
+avg_review =  result/5                                      
+                                    </code></pre>
+                                            <h3></h3>
+                                            <pre><code>
+<h3>avg_review = 1.86 </h3>
+
+                                             <img src="images/Taken_3_poster.jpg" alt="">
+
+ <h2>Hence Fandango is showing around 3-4 star ratings for films 
+    that are clearly bad! Notice the biggest offender, 
+    Taken 3!. Fandango is displaying 4.5 stars on their 
+    site for a film with an average rating of 1.86 across 
+    the other platforms!</h2>
+                                                </code></pre>
+                                            </div>
+                                        
+                                        
+
+
+
+
+
+    </div>
+
+
+
+    </div>
+    <footer>
+        <p>&copy; 2023 Data Analysis Fandango. All rights reserved to Shiban Siddiqui.</p>
+    </footer>
+</body>
+</html>
